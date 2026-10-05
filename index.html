@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <meta name="description" content="Divya Alajangi is a data analyst who turns complex datasets into clear, actionable insights with Python, SQL, Power BI, and Excel.">
+  <title>Divya Alajangi — Data Analyst</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f5f6f2;
+      --surface: #fff;
+      --ink: #17211f;
+      --muted: #697571;
+      --line: #e3e8e3;
+      --accent: #167d70;
+      --accent-strong: #10695e;
+      --accent-soft: #e3f1ed;
+      --shadow: 0 18px 48px rgb(23 46 39 / 9%);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #121917;
+      --surface: #1b2421;
+      --ink: #edf3ef;
+      --muted: #a1afa8;
+      --line: #303d37;
+      --accent: #72cfba;
+      --accent-strong: #8ce0cc;
+      --accent-soft: #233c35;
+      --shadow: 0 18px 48px rgb(0 0 0 / 28%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --page: #121917;
+        --surface: #1b2421;
+        --ink: #edf3ef;
+        --muted: #a1afa8;
+        --line: #303d37;
+        --accent: #72cfba;
+        --accent-strong: #8ce0cc;
+        --accent-soft: #233c35;
+        --shadow: 0 18px 48px rgb(0 0 0 / 28%);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 79% 12%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 34rem),
+        var(--page);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      width: min(100% - 64px, 1024px);
+      margin-inline: auto;
+    }
+
+    .topbar {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 690;
+      letter-spacing: -.035em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--page);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: -.06em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 550;
+    }
+
+    .nav-links a { transition: color 160ms ease; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links .contact-link {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .nav-links .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+
+    .theme-toggle:hover { border-color: var(--accent); transform: rotate(-8deg); }
+    .theme-toggle svg { width: 17px; height: 17px; }
+    .sun-icon { display: none; }
+    :root[data-theme="dark"] .sun-icon { display: block; }
+    :root[data-theme="dark"] .moon-icon { display: none; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .sun-icon { display: block; }
+      :root:not([data-theme="light"]) .moon-icon { display: none; }
+    }
+
+    main { padding-top: 68px; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 210px;
+      align-items: center;
+      gap: 56px;
+      padding-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 19px;
+      color: var(--accent-strong);
+      font-size: 12px;
+      font-weight: 720;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ba98d;
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 6.3vw, 66px);
+      font-weight: 630;
+      letter-spacing: -.067em;
+      line-height: 1.06;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .intro-copy {
+      max-width: 590px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .intro-copy strong { color: var(--ink); font-weight: 620; }
+
+    .profile-art {
+      position: relative;
+      width: 194px;
+      height: 194px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line));
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 78% 24%, color-mix(in srgb, var(--accent) 26%, transparent) 0 2px, transparent 2.5px) 0 0 / 20px 20px,
+        var(--accent-soft);
+      box-shadow: 0 12px 36px color-mix(in srgb, var(--accent) 9%, transparent);
+      transform: rotate(2deg);
+    }
+
+    .profile-emoji {
+      width: 106px;
+      height: 106px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--accent) 13%, var(--line));
+      border-radius: 32px;
+      background: var(--surface);
+      font-size: 54px;
+      box-shadow: 0 10px 28px rgb(23 46 39 / 10%);
+      transform: rotate(-6deg);
+    }
+
+    .profile-tag {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--accent-strong);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      transform: rotate(-2deg);
+    }
+
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 0 0 37px;
+    }
+
+    .credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 560;
+      white-space: nowrap;
+    }
+
+    .credential b { color: var(--ink); font-weight: 650; }
+    .credential .mini-icon { color: var(--accent); font-size: 13px; }
+
+    .projects-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 19px;
+    }
+
+    .projects-heading h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 680;
+      letter-spacing: -.025em;
+    }
+
+    .projects-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 60px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 215px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden;
+      padding: 23px 24px 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--surface);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .project-card::after {
+      position: absolute;
+      top: -34px;
+      right: -29px;
+      width: 105px;
+      height: 105px;
+      border: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+      box-shadow: var(--shadow);
+    }
+
+    .project-topline {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .project-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--accent) 10%, var(--line));
+      border-radius: 13px;
+      background: var(--accent-soft);
+      font-size: 21px;
+    }
+
+    .project-number {
+      padding-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .08em;
+    }
+
+    .project-card h3 {
+      margin: 21px 0 5px;
+      font-size: 16px;
+      font-weight: 660;
+      letter-spacing: -.025em;
+      line-height: 1.35;
+    }
+
+    .project-card p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 13px;
+    }
+
+    .project-stack span {
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: color-mix(in srgb, var(--accent-soft) 68%, var(--surface));
+      color: var(--accent-strong);
+      font-size: 10px;
+      font-weight: 620;
+      letter-spacing: .015em;
+    }
+
+    @media (max-width: 700px) {
+      .page-shell { width: min(100% - 40px, 520px); }
+      .topbar { height: 74px; }
+      .nav-links { gap: 14px; }
+      .nav-links .contact-link { padding: 7px 11px; }
+      main { padding-top: 49px; }
+      .intro { grid-template-columns: minmax(0, 1fr) 128px; gap: 22px; }
+      .profile-art { width: 126px; height: 126px; border-radius: 25px; }
+      .profile-emoji { width: 74px; height: 74px; border-radius: 23px; font-size: 38px; }
+      .profile-tag { right: 5px; bottom: 6px; font-size: 9px; }
+      .credentials { padding-bottom: 31px; }
+      .project-card { min-height: 220px; padding: 19px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell { width: min(100% - 32px, 420px); }
+      .nav-links { gap: 10px; }
+      .nav-links a:first-child { display: none; }
+      .nav-links { font-size: 12px; }
+      main { padding-top: 39px; }
+      .intro { grid-template-columns: 1fr; gap: 21px; padding-bottom: 23px; }
+      .profile-art { grid-row: 1; width: 91px; height: 91px; border-radius: 24px; }
+      .profile-emoji { width: 58px; height: 58px; border-radius: 19px; font-size: 31px; }
+      .profile-tag { right: 3px; bottom: 3px; padding: 3px 6px; font-size: 8px; }
+      .eyebrow { margin-bottom: 15px; font-size: 10px; }
+      h1 { font-size: clamp(39px, 10vw, 50px); }
+      .intro-copy { margin-top: 14px; font-size: 14px; }
+      .credentials { gap: 7px; padding-bottom: 29px; }
+      .credential { padding: 6px 9px; font-size: 10px; }
+      .projects-heading p { font-size: 11px; }
+      .project-grid { gap: 10px; }
+      .project-card { min-height: 204px; padding: 15px; }
+      .project-card h3 { margin-top: 16px; font-size: 14px; }
+      .project-card p { font-size: 12px; }
+      .project-icon { width: 38px; height: 38px; font-size: 19px; }
+      .project-stack { gap: 4px; margin-top: 10px; }
+      .project-stack span { font-size: 9px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Divya Alajangi home">
+        <span class="brand-mark" aria-hidden="true">DA</span>
+        <span>Divya Alajangi</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="https://www.linkedin.com/in/alajangi-divya-836765296/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="contact-link" href="mailto:saidivya9790@gmail.com">Get in touch</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.2 15.5A8.4 8.4 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"></path>
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Data analyst · Visakhapatnam, India</p>
+          <h1 id="intro-title">I turn complex data<br>into <span>clear direction.</span></h1>
+          <p class="intro-copy">I’m <strong>Divya</strong>, a Computer Science Engineering graduate who enjoys finding the signal in a dataset. With Python, SQL, Power BI, and Excel, I clean, explore, and visualize data to help people make more confident decisions.</p>
+        </div>
+        <div class="profile-art" aria-label="Data analyst illustration">
+          <span class="profile-emoji" role="img" aria-label="Woman technologist">👩‍💻</span>
+          <span class="profile-tag">DATA → INSIGHT</span>
+        </div>
+      </section>
+
+      <div class="credentials" aria-label="Education and highlights">
+        <span class="credential"><span class="mini-icon" aria-hidden="true">✦</span><b>Andhra University</b> · B.Tech CSE ’26</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">↗</span><b>8.1 CGPA</b></span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">⌁</span><b>SIH 2025</b> shortlisted</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">◎</span><b>NASA Space Apps 2025</b> qualified</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">▦</span><b>AICTE</b> Full Stack Intern · May–Oct 2025</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">⌘</span><b>TechnoHacks</b> Web Dev Intern · Apr–May 2024</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">✓</span>Full Stack · Data Analytics · Python certified</span>
+        <span class="credential"><span class="mini-icon" aria-hidden="true">◌</span>Power Query · DAX · Jupyter Notebook</span>
+      </div>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="projects-heading">
+          <h2 id="projects-title">Selected projects</h2>
+          <p>From raw data to real-world tools</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-icon" aria-hidden="true">📊</span>
+              <span class="project-number">01 / 04</span>
+            </div>
+            <h3>Student Placement Analytics Dashboard</h3>
+            <p>Explores salary, CGPA, internships, and recruitment outcomes through clean data, meaningful KPIs, and interactive dashboards.</p>
+            <div class="project-stack" aria-label="Technologies">
+              <span>Python</span><span>SQL</span><span>Power BI</span><span>Excel</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-icon" aria-hidden="true">🎓</span>
+              <span class="project-number">02 / 04</span>
+            </div>
+            <h3>Campus Connect</h3>
+            <p>A college attendance improvement system with validated records, progress reporting, trend dashboards, and attendance prediction concepts.</p>
+            <div class="project-stack" aria-label="Technologies">
+              <span>Python</span><span>SQLite</span><span>HTML</span><span>CSS</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-icon" aria-hidden="true">🏦</span>
+              <span class="project-number">03 / 04</span>
+            </div>
+            <h3>Bank Management System</h3>
+            <p>Manages accounts and transactions with reliable CRUD workflows backed by structured SQL data.</p>
+            <div class="project-stack" aria-label="Technologies">
+              <span>Python</span><span>SQL</span><span>Database design</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-icon" aria-hidden="true">🚀</span>
+              <span class="project-number">04 / 04</span>
+            </div>
+            <h3>Aegis · NASA Space Apps</h3>
+            <p>A challenge project using Python analysis and data visualization to explore a real-world problem and surface useful insights.</p>
+            <div class="project-stack" aria-label="Technologies">
+              <span>Python</span><span>Data visualization</span><span>Space Apps 2025</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector(".theme-toggle");
+    const savedTheme = localStorage.getItem("divya-portfolio-theme");
+
+    if (savedTheme === "light" || savedTheme === "dark") {
+      root.dataset.theme = savedTheme;
+    }
+
+    function updateThemeLabel() {
+      const dark = root.dataset.theme === "dark" ||
+        (!root.dataset.theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    }
+
+    updateThemeLabel();
+    themeToggle.addEventListener("click", () => {
+      const currentlyDark = root.dataset.theme === "dark" ||
+        (!root.dataset.theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      root.dataset.theme = currentlyDark ? "light" : "dark";
+      localStorage.setItem("divya-portfolio-theme", root.dataset.theme);
+      updateThemeLabel();
+    });
+  </script>
+</body>
+</html>
